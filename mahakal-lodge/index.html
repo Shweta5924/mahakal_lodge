@@ -40,109 +40,111 @@
 <body>
 
   <!-- ==========================================================================
-       Top Contact / Notification Bar
+       Fixed Top Navigation (Topbar & Main Header)
        ========================================================================== -->
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-left">
-        <div class="topbar-item">
-          <svg fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-          </svg>
-          <span data-config="address">Near Balaji Mandir, Old Mondha, Nanded</span>
+  <header class="header-fixed-wrapper" id="fixedNavbar">
+    <!-- Top Contact / Notification Bar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar-left">
+          <div class="topbar-item">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <span data-config="address">Near Balaji Mandir, Old Mondha, Nanded</span>
+          </div>
+          <div class="topbar-item">
+            <span class="topbar-badge">24/7 Front Desk</span>
+          </div>
         </div>
-        <div class="topbar-item">
-          <span class="topbar-badge">24/7 Front Desk</span>
-        </div>
-      </div>
-      <div class="topbar-right">
-        <div class="topbar-item">
-          <svg fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-          </svg>
-          <a href="tel:8888067173" data-config="phone">+91 8888067173</a>
-        </div>
-        <div class="topbar-item">
-          <svg fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
-          </svg>
-          <a href="https://wa.me/918888067173" target="_blank" rel="noopener" data-config="whatsapp">+91 8888067173</a>
+        <div class="topbar-right">
+          <div class="topbar-item">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+            <a href="tel:8888067173" data-config="phone">+91 8888067173</a>
+          </div>
+          <div class="topbar-item">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
+            </svg>
+            <a href="https://wa.me/918888067173" target="_blank" rel="noopener" data-config="whatsapp">+91
+              8888067173</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ==========================================================================
-       Header & Navigation
-       ========================================================================== -->
-  <header class="header">
-    <div class="container">
-      <a href="#home" class="brand-logo" aria-label="MAHAKAL LODGE Homepage">
-        <div class="logo-symbol">M</div>
-        <div class="brand-text">
-          <span class="brand-name">MAHAKAL LODGE</span>
-          <span class="brand-sub">COMFORT & PEACE</span>
-        </div>
-      </a>
-
-      <!-- Mobile Drawer Backdrop Overlay -->
-      <div class="mobile-nav-overlay" id="mobileOverlay"></div>
-
-      <!-- Desktop & Mobile Navigation Links -->
-      <nav class="nav-menu" id="primaryNav" aria-label="Main Navigation">
-        <div class="mobile-drawer-header">
-          <div class="mobile-drawer-brand">
-            <span class="mobile-drawer-title">MAHAKAL LODGE</span>
-            <span class="mobile-drawer-tag">❖ 24-Hour Hospitality</span>
+    <!-- Main Navigation Bar -->
+    <div class="header">
+      <div class="container">
+        <a href="#home" class="brand-logo" aria-label="MAHAKAL LODGE Homepage">
+          <div class="logo-symbol">M</div>
+          <div class="brand-text">
+            <span class="brand-name">MAHAKAL LODGE</span>
+            <span class="brand-sub">COMFORT & PEACE</span>
           </div>
-          <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">
-            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+        </a>
+
+        <!-- Mobile Drawer Backdrop Overlay -->
+        <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+
+        <!-- Desktop & Mobile Navigation Links -->
+        <nav class="nav-menu" id="primaryNav" aria-label="Main Navigation">
+          <div class="mobile-drawer-header">
+            <div class="mobile-drawer-brand">
+              <span class="mobile-drawer-title">MAHAKAL LODGE</span>
+              <span class="mobile-drawer-tag">❖ 24-Hour Hospitality</span>
+            </div>
+            <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#rooms" class="nav-link">Rooms</a>
+          <a href="#facilities" class="nav-link">Facilities</a>
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#location" class="nav-link">Location</a>
+          <a href="#contact" class="nav-link">Contact</a>
+
+          <div class="mobile-menu-footer">
+            <a href="#contact" class="btn btn-primary btn-full mobile-book-btn">Book Your Stay</a>
+            <div class="mobile-drawer-actions">
+              <a href="tel:8888067173" class="mobile-action-pill">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span>+91 8888067173</span>
+              </a>
+              <a href="https://wa.me/918888067173?text=Hello%20Mahakal%20Lodge%2C%20I%20would%20like%20to%20inquire%20about%20room%20booking."
+                target="_blank" rel="noopener" class="mobile-action-pill whatsapp-pill">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                  <path
+                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+            <p class="mobile-drawer-address">📍 Near Balaji Mandir, Old Mondha, Nanded</p>
+          </div>
+        </nav>
+
+        <div class="header-cta">
+          <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false"
+            aria-controls="primaryNav">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#rooms" class="nav-link">Rooms</a>
-        <a href="#facilities" class="nav-link">Facilities</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#location" class="nav-link">Location</a>
-        <a href="#contact" class="nav-link">Contact</a>
-
-        <div class="mobile-menu-footer">
-          <a href="#contact" class="btn btn-primary btn-full mobile-book-btn">Book Your Stay</a>
-          <div class="mobile-drawer-actions">
-            <a href="tel:8888067173" class="mobile-action-pill">
-              <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
-                <path
-                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-              </svg>
-              <span>+91 8888067173</span>
-            </a>
-            <a href="https://wa.me/918888067173?text=Hello%20Mahakal%20Lodge%2C%20I%20would%20like%20to%20inquire%20about%20room%20booking."
-              target="_blank" rel="noopener" class="mobile-action-pill whatsapp-pill">
-              <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
-                <path
-                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
-              </svg>
-              <span>WhatsApp</span>
-            </a>
-          </div>
-          <p class="mobile-drawer-address">📍 Near Balaji Mandir, Old Mondha, Nanded</p>
-        </div>
-      </nav>
-
-      <div class="header-cta">
-        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false"
-          aria-controls="primaryNav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </header>
@@ -414,7 +416,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates </span>
+                <span class="price-value">Rs.1500</span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="deluxe-ac">Book Now</a>
             </div>
@@ -452,7 +454,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates </span>
+                <span class="price-value">Rs.3000 </span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="executive-double">Book
                 Now</a>
@@ -491,7 +493,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates </span>
+                <span class="price-value">Rs.3000 </span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="master-suite">Book Now</a>
             </div>
@@ -725,6 +727,22 @@
             <span class="gallery-sub">24 Hour Service • Old Mondha Nanded</span>
           </div>
         </div>
+
+        <!-- Photo 7 -->
+        <div class="gallery-item reveal" data-index="6">
+          <img src="images/location_img.jpg" onerror="this.onerror=null; this.src='images/location_img.jpg'"
+            alt="MAHAKAL LODGE Building Exterior & Entrance View" width="400" height="300">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-btn">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+              </svg>
+            </div>
+            <h4 class="gallery-caption">Building Exterior & Entrance Facade</h4>
+            <span class="gallery-sub">Near Balaji Mandir, Old Mondha Road</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -764,13 +782,59 @@
   <section class="location" id="location">
     <div class="container">
       <div class="location-card reveal">
-        <!-- Interactive Map Column -->
-        <div class="location-map-wrap">
-          <!-- Google Maps Embed centered precisely at 19.149389, 77.317306 -->
-          <iframe src="https://maps.google.com/maps?q=19.149389,77.317306&hl=en&z=17&output=embed"
-            title="MAHAKAL LODGE Google Maps Location" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <!-- Interactive Media Column: Building Photo & Google Map -->
+        <div class="location-media-wrap">
+          <!-- View Switcher Tabs -->
+          <div class="location-tabs" role="tablist" aria-label="Location Media View Options">
+            <button class="location-tab active" id="tabBuilding" role="tab" aria-selected="true"
+              aria-controls="locationPhotoView">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <span>Building & Entrance</span>
+            </button>
+            <button class="location-tab" id="tabMap" role="tab" aria-selected="false" aria-controls="locationMapView">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+              <span>Live Google Map</span>
+            </button>
+          </div>
+
+          <!-- View 1: Building Photo Showcase (Active by default) -->
+          <div class="location-view-pane active" id="locationPhotoView" role="tabpanel" aria-labelledby="tabBuilding">
+            <div class="location-image-container" id="locationImageContainer">
+              <img src="images/location_img.jpg" onerror="this.onerror=null; this.src='images/location_img.jpg'"
+                alt="MAHAKAL LODGE Building Exterior & Entrance in Old Mondha Nanded" class="location-building-img"
+                id="locationBuildingImg" loading="lazy" width="640" height="480">
+              <div class="location-image-badge">
+                <span class="pulse-dot"></span>
+                <span>Lodge Facade & Ground Entrance</span>
+              </div>
+              <button class="location-zoom-btn" id="locationImageZoom"
+                aria-label="Enlarge building photo in fullscreen">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                </svg>
+                <span>Tap to Zoom</span>
+              </button>
+              <div class="location-image-caption">
+                <p><strong>MAHAKAL LODGE Building</strong> — Spot our multi-story lodge directly on Old Mondha road
+                  adjacent to Balaji Mandir.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- View 2: Google Maps Embed -->
+          <div class="location-view-pane" id="locationMapView" role="tabpanel" aria-labelledby="tabMap">
+            <iframe src="https://maps.google.com/maps?q=19.149389,77.317306&hl=en&z=17&output=embed"
+              title="MAHAKAL LODGE Google Maps Location" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
 
         <!-- Location Information Column -->
@@ -787,6 +851,17 @@
               बालाजी मंदिर जवळ, जुना मोंढा, नांदेड<br>
               Near Balaji Mandir, Old Mondha, Nanded, Maharashtra - 431601
             </div>
+          </div>
+
+          <!-- Building Spotter / Visual Landmark Chip -->
+          <div class="building-spotter-chip" id="chipViewExterior" role="button" tabindex="0"
+            title="Click to view building photo">
+            <img src="images/location_img.jpg" alt="Building preview thumbnail" class="spotter-thumb">
+            <div class="spotter-content">
+              <span class="spotter-title">🏢 Street Landmark View</span>
+              <span class="spotter-desc">Easily spot our multi-story lodge building from Old Mondha road</span>
+            </div>
+            <span class="spotter-action">View Photo</span>
           </div>
 
           <div class="coordinates-box">

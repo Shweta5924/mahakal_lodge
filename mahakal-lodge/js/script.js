@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookButtonsRedirect();
   initContactForm();
   initGalleryLightbox();
+  initLocationMediaTabs();
   initScrollAnimations();
   initBackToTop();
   initDynamicConfig();
@@ -135,27 +136,22 @@ function initDynamicConfig() {
 
 /* ==========================================================================
    4. NAVBAR & NAVIGATION
-   Sticky header, mobile hamburger drawer, smooth scrolling, active link spy
+   Fixed top navigation, mobile hamburger drawer, smooth scrolling, active spy
    ========================================================================== */
 function initNavbar() {
-  const header = document.querySelector('.header');
+  const fixedNav = document.getElementById('fixedNavbar') || document.querySelector('.header');
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const overlay = document.querySelector('.mobile-nav-overlay');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // Header scroll shadow and shrink
-  const handleScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+  const getNavOffset = () => (fixedNav ? fixedNav.offsetHeight : 80);
 
-    // Active link highlighting via scroll position
+  // Active link highlighting via scroll position (Navbar size remains 100% constant)
+  const handleScroll = () => {
     let currentId = '';
-    const scrollPosition = window.scrollY + 120;
+    const scrollPosition = window.scrollY + getNavOffset() + 30;
 
     sections.forEach(section => {
       const top = section.offsetTop;
@@ -234,9 +230,9 @@ function initNavbar() {
         e.preventDefault();
         toggleMobileMenu(false);
 
-        const headerOffset = 72;
+        const navOffset = getNavOffset();
         const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
         window.scrollTo({
           top: offsetPosition,
@@ -270,8 +266,8 @@ function initBookButtonsRedirect() {
 
       const contactSection = document.getElementById('contact');
       if (contactSection) {
-        const headerOffset = 76;
-        const offsetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        const navOffset = document.getElementById('fixedNavbar')?.offsetHeight || 80;
+        const offsetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -424,6 +420,93 @@ function initGalleryLightbox() {
       else showPrev();          // Swiped right -> prev
     }
   }, { passive: true });
+
+  // Handle Location Section Zoom & Building Image Clicks
+  const locationZoomBtn = document.getElementById('locationImageZoom');
+  const locationBuildingImg = document.getElementById('locationBuildingImg');
+  const locationItemIndex = images.findIndex(img => img.src && img.src.includes('location_img.jpg'));
+
+  if (locationZoomBtn && locationItemIndex !== -1) {
+    locationZoomBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(locationItemIndex);
+    });
+  }
+
+  if (locationBuildingImg && locationItemIndex !== -1) {
+    locationBuildingImg.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox(locationItemIndex);
+    });
+  }
+}
+
+
+/* ==========================================================================
+   8.1 LOCATION SECTION MEDIA TABS & SPOTTER
+   Allows switching smoothly between Building Exterior Photo and Google Map
+   ========================================================================== */
+function initLocationMediaTabs() {
+  const tabBuilding = document.getElementById('tabBuilding');
+  const tabMap = document.getElementById('tabMap');
+  const photoView = document.getElementById('locationPhotoView');
+  const mapView = document.getElementById('locationMapView');
+  const chipViewExterior = document.getElementById('chipViewExterior');
+
+  if (!tabBuilding || !tabMap || !photoView || !mapView) return;
+
+  function switchTab(showPhoto) {
+    if (showPhoto) {
+      tabBuilding.classList.add('active');
+      tabBuilding.setAttribute('aria-selected', 'true');
+      tabMap.classList.remove('active');
+      tabMap.setAttribute('aria-selected', 'false');
+      photoView.classList.add('active');
+      mapView.classList.remove('active');
+    } else {
+      tabMap.classList.add('active');
+      tabMap.setAttribute('aria-selected', 'true');
+      tabBuilding.classList.remove('active');
+      tabBuilding.setAttribute('aria-selected', 'false');
+      mapView.classList.add('active');
+      photoView.classList.remove('active');
+    }
+  }
+
+  tabBuilding.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchTab(true);
+  });
+
+  tabMap.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchTab(false);
+  });
+
+  if (chipViewExterior) {
+    chipViewExterior.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab(true);
+      const mediaWrap = document.querySelector('.location-media-wrap');
+      if (mediaWrap) {
+        const navOffset = document.getElementById('fixedNavbar')?.offsetHeight || 80;
+        const offsetPosition = mediaWrap.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    chipViewExterior.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        chipViewExterior.click();
+      }
+    });
+  }
 }
 
 
