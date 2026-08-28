@@ -3,7 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+  <!-- Android & Mobile App Meta Tags -->
+  <meta name="theme-color" content="#1c1815">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=yes">
 
   <!-- Primary SEO Meta Tags -->
   <title>MAHAKAL LODGE | Comfortable Stay & Peaceful Experience in Nanded</title>
@@ -81,8 +88,22 @@
         </div>
       </a>
 
+      <!-- Mobile Drawer Backdrop Overlay -->
+      <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+
       <!-- Desktop & Mobile Navigation Links -->
       <nav class="nav-menu" id="primaryNav" aria-label="Main Navigation">
+        <div class="mobile-drawer-header">
+          <div class="mobile-drawer-brand">
+            <span class="mobile-drawer-title">MAHAKAL LODGE</span>
+            <span class="mobile-drawer-tag">❖ 24-Hour Hospitality</span>
+          </div>
+          <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#rooms" class="nav-link">Rooms</a>
@@ -90,6 +111,28 @@
         <a href="#gallery" class="nav-link">Gallery</a>
         <a href="#location" class="nav-link">Location</a>
         <a href="#contact" class="nav-link">Contact</a>
+
+        <div class="mobile-menu-footer">
+          <a href="#contact" class="btn btn-primary btn-full mobile-book-btn">Book Your Stay</a>
+          <div class="mobile-drawer-actions">
+            <a href="tel:8888067173" class="mobile-action-pill">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
+              <span>+91 8888067173</span>
+            </a>
+            <a href="https://wa.me/918888067173?text=Hello%20Mahakal%20Lodge%2C%20I%20would%20like%20to%20inquire%20about%20room%20booking."
+              target="_blank" rel="noopener" class="mobile-action-pill whatsapp-pill">
+              <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                <path
+                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+          <p class="mobile-drawer-address">📍 Near Balaji Mandir, Old Mondha, Nanded</p>
+        </div>
       </nav>
 
       <div class="header-cta">
@@ -103,9 +146,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Mobile Drawer Backdrop Overlay -->
-  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
 
   <!-- ==========================================================================
        Hero Section
@@ -374,7 +414,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates <small>/ Night</small></span>
+                <span class="price-value">Contact for Rates </span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="deluxe-ac">Book Now</a>
             </div>
@@ -412,7 +452,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates <small>/ Night</small></span>
+                <span class="price-value">Contact for Rates </span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="executive-double">Book
                 Now</a>
@@ -451,7 +491,7 @@
             <div class="room-footer">
               <div class="room-price-box">
                 <span class="price-label">Tariff</span>
-                <span class="price-value">Contact for Rates <small>/ Night</small></span>
+                <span class="price-value">Contact for Rates </span>
               </div>
               <a href="#contact" class="btn btn-primary btn-sm btn-book-room" data-room-id="master-suite">Book Now</a>
             </div>
@@ -1039,6 +1079,51 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
     </svg>
   </button>
+
+  <!-- ==========================================================================
+       Android & Mobile Quick-Action Bottom Bar
+       Sticky touch bar for instant Calling, WhatsApp, Directions, and Booking
+       ========================================================================== -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Quick Actions">
+    <a href="tel:8888067173" class="bottom-bar-item" aria-label="Call Mahakal Lodge">
+      <div class="bottom-bar-icon">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path
+            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        </svg>
+      </div>
+      <span class="bottom-bar-label">Call</span>
+    </a>
+    <a href="https://wa.me/918888067173?text=Hello%20Mahakal%20Lodge%2C%20I%20would%20like%20to%20inquire%20about%20room%20booking."
+      target="_blank" rel="noopener" class="bottom-bar-item" aria-label="WhatsApp Mahakal Lodge">
+      <div class="bottom-bar-icon whatsapp-icon">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path
+            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z" />
+        </svg>
+      </div>
+      <span class="bottom-bar-label">WhatsApp</span>
+    </a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=19.149389,77.317306" target="_blank" rel="noopener"
+      class="bottom-bar-item" aria-label="Directions to Mahakal Lodge">
+      <div class="bottom-bar-icon">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+        </svg>
+      </div>
+      <span class="bottom-bar-label">Directions</span>
+    </a>
+    <a href="#contact" class="bottom-bar-item highlight-item" aria-label="Book Stay at Mahakal Lodge">
+      <div class="bottom-bar-icon gold-icon">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path
+            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+        </svg>
+      </div>
+      <span class="bottom-bar-label">Book Stay</span>
+    </a>
+  </nav>
 
   <!-- JavaScript -->
   <script src="js/script.js"></script>

@@ -178,20 +178,49 @@ function initNavbar() {
 
   // Mobile menu toggle
   const toggleMobileMenu = (state) => {
+    if (!navMenu || !hamburger) return;
     const shouldOpen = typeof state === 'boolean' ? state : !navMenu.classList.contains('active');
     hamburger.classList.toggle('active', shouldOpen);
     navMenu.classList.toggle('active', shouldOpen);
-    overlay.classList.toggle('active', shouldOpen);
-    hamburger.setAttribute('aria-expanded', shouldOpen);
+    if (overlay) overlay.classList.toggle('active', shouldOpen);
+    hamburger.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
     document.body.classList.toggle('no-scroll', shouldOpen);
   };
 
   if (hamburger) {
-    hamburger.addEventListener('click', () => toggleMobileMenu());
+    hamburger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+  }
+
+  const closeDrawerBtn = document.getElementById('mobileDrawerClose');
+  if (closeDrawerBtn) {
+    closeDrawerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileMenu(false);
+    });
   }
 
   if (overlay) {
-    overlay.addEventListener('click', () => toggleMobileMenu(false));
+    overlay.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleMobileMenu(false);
+    });
+    overlay.addEventListener('touchstart', () => {
+      toggleMobileMenu(false);
+    }, { passive: true });
+  }
+
+  // Auto-close mobile drawer when any link inside navMenu is tapped
+  if (navMenu) {
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggleMobileMenu(false);
+      });
+    });
   }
 
   // Smooth scroll and auto-close mobile drawer on link click
@@ -205,7 +234,7 @@ function initNavbar() {
         e.preventDefault();
         toggleMobileMenu(false);
 
-        const headerOffset = 76;
+        const headerOffset = 72;
         const elementPosition = targetEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -219,7 +248,7 @@ function initNavbar() {
 
   // Close drawer on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
       toggleMobileMenu(false);
     }
   });
