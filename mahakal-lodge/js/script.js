@@ -31,7 +31,7 @@ const LODGE_CONFIG = {
   phoneRaw: "8888067173",
   whatsapp: "+91 8888067173",
   whatsappClean: "918888067173", // Digits only with country code
-  email: "contact@mahakallodge.com",
+  email: "mahakalinlodge@gmail.com",
   
   // Direct Google Maps Navigation Links
   googleMapsDirectionsUrl: "https://www.google.com/maps/dir/?api=1&destination=19.149389,77.317306",
